@@ -1,7 +1,8 @@
-package com.example.oauth.config;
+package com.example.producer01.config;
 
-import com.example.oauth.entity.granter.PasswordTokenGranter;
 import com.example.oauth.service.MyClientDetailsService;
+import com.example.oauth.store.DefaultOauthTokenStoreImpl;
+import com.example.producer01.service.PasswordTokenGranter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,13 +36,13 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    private DefaultOauthTokenStoreImpl tokenStore;
+    private DefaultOauthTokenStoreImpl tokenStore = new DefaultOauthTokenStoreImpl();
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
 //                .userDetailsService(userDetailsService)
+                .tokenStore(tokenStore)
                 .reuseRefreshTokens(true)
                 .authenticationManager(this.authenticationManager);
  //               .setClientDetailsService(new MyClientDetailsService());
@@ -92,4 +93,5 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         tokenServices.setClientDetailsService(clientDetailsService());
         return tokenServices;
     }
+
 }

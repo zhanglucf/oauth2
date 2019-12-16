@@ -13,6 +13,7 @@ import java.util.Set;
  * @data 2019/12/12
  */
 public interface UserRpcService {
+
     User loadUserByUsername(String username);
 
     Set<Role> loadRolesByUserId(Long userId);

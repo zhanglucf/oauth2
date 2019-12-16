@@ -1,6 +1,5 @@
-package com.example.oauth.entity.user;
+package com.example.oauth.user;
 
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +13,7 @@ import java.util.Set;
  * @data 2019/12/12
  */
 public class MyUserDetails implements UserDetails {
+    private static final long serialVersionUID = -5824811031233965416L;
 
     private String userName;
 

@@ -61,25 +61,6 @@ public class UserRpcServiceImpl implements UserRpcService {
 
     @Override
     public Set<Permission> loadPermissionListByUserId(Long userId) {
-//        Set<Role> roleList = this.loadRolesByUserId(userId);
-//        if (!CollectionUtils.isEmpty(roleList)) {
-//            Set<Permission> permissions = new HashSet<>();
-//            for (Role role : roleList) {
-//                PermissionRole ex = new PermissionRole();
-//                ex.setRoleId(role.getId());
-//                List<PermissionRole> permissionRoles = permissionRoleMapper.selectByExample(ex);
-//                if (!CollectionUtils.isEmpty(roleList)) {
-//                    for (PermissionRole permissionRole : permissionRoles) {
-//                        Permission permission = permissionMapper.selectByPrimaryKey(permissionRole.getPermissionId());
-//                        if (permission != null) {
-//                            permissions.add(permission);
-//                        }
-//                    }
-//                }
-//            }
-//            return permissions;
-//        }
-//        return new HashSet<>();
         List<Permission> permissions = permissionMapper.loadPermissionListByUserId(userId);
         Set<Permission> set = new HashSet<>(permissions);
         return set;

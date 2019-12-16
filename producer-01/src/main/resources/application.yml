@@ -47,8 +47,7 @@ server:
 
 
 #logback输出日志配置
-#logging:
-#  config: classpath:logback.xml
-#  控制屏蔽对应包的日志打印
-#  level:
+logging:
+  config: classpath:logback.xml
+  level: info
 #   com.springboot.sixmonth.controller: 'off'

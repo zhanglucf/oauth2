@@ -1,4 +1,4 @@
-package com.example.oauth.config;
+package com.example.oauth.store;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +20,6 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 
-@Component
 public class DefaultOauthTokenStoreImpl  implements TokenStore {
 
     boolean flushToken = false;

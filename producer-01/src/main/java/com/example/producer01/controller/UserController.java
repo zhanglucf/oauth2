@@ -16,7 +16,7 @@ import java.util.List;
  * @author zhenhua zhang
  * @data 2019/12/13
  */
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 @RestController
 public class UserController {
 

@@ -1,4 +1,4 @@
-package com.example.oauth.entity.granter;
+package com.example.oauth.granter;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AbstractAuthenticationToken;

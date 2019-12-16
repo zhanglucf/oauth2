@@ -1,8 +1,7 @@
-package com.example.oauth.service;
+package com.example.producer01.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.example.oauth.user.MyUserDetails;
-import com.example.producer01.service.UserRpcService;
 import entity.Permission;
 import entity.User;
 import org.springframework.security.core.userdetails.UserDetails;

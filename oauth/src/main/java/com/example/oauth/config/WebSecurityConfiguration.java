@@ -1,6 +1,6 @@
 package com.example.oauth.config;
 
-import com.example.oauth.entity.provider.GeneralAuthenticationProvider;
+import com.example.oauth.provider.GeneralAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,12 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 /**
  * @author zhenhua zhang
- * @data 2019/12/12
+ * @data 2019/12/16
  */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
     @Autowired
     private GeneralAuthenticationProvider generalAuthenticationProvider;
 
@@ -29,15 +28,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-            .antMatchers("/oauth/**").authenticated()
-            .and()
-            .csrf().disable();
+                .authorizeRequests()
+                .antMatchers("/oauth/**").authenticated()
+                .and()
+                .csrf().disable();
     }
 
     @Bean
     public AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
-
 }
+

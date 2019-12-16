@@ -1,4 +1,4 @@
-package com.example.oauth.config;
+package com.example.producer01.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
