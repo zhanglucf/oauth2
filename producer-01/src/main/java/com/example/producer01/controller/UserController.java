@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author zhenhua zhang
@@ -37,7 +36,7 @@ public class UserController {
 
     @GetMapping
     public User findByUserName(@RequestParam String userName){
-        return userService.findByUserName();
+        return userService.findByUserName(userName);
     }
 
     @GetMapping("/all")

@@ -1,18 +1,15 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "sys_role_user")
-public class RoleUser {
+@Table(name = "sys_role")
+public class Role implements Serializable {
     @Id
     private Long id;
 
-    @Column(name = "sys_user_id")
-    private Long sysUserId;
-
-    @Column(name = "sys_role_id")
-    private Long sysRoleId;
+    private String name;
 
     @Column(name = "insert_time")
     private Date insertTime;
@@ -26,7 +23,7 @@ public class RoleUser {
     @Column(name = "update_by")
     private Long updateBy;
 
-    private Long version;
+    private Long verison;
 
     /**
      * @return id
@@ -43,31 +40,17 @@ public class RoleUser {
     }
 
     /**
-     * @return sys_user_id
+     * @return name
      */
-    public Long getSysUserId() {
-        return sysUserId;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param sysUserId
+     * @param name
      */
-    public void setSysUserId(Long sysUserId) {
-        this.sysUserId = sysUserId;
-    }
-
-    /**
-     * @return sys_role_id
-     */
-    public Long getSysRoleId() {
-        return sysRoleId;
-    }
-
-    /**
-     * @param sysRoleId
-     */
-    public void setSysRoleId(Long sysRoleId) {
-        this.sysRoleId = sysRoleId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -127,16 +110,16 @@ public class RoleUser {
     }
 
     /**
-     * @return version
+     * @return verison
      */
-    public Long getVersion() {
-        return version;
+    public Long getVerison() {
+        return verison;
     }
 
     /**
-     * @param version
+     * @param verison
      */
-    public void setVersion(Long version) {
-        this.version = version;
+    public void setVerison(Long verison) {
+        this.verison = verison;
     }
 }

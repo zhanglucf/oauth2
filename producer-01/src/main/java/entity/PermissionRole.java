@@ -1,18 +1,19 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "sys_role_user")
-public class RoleUser {
+@Table(name = "sys_permission_role")
+public class PermissionRole implements Serializable {
     @Id
     private Long id;
 
-    @Column(name = "sys_user_id")
-    private Long sysUserId;
+    @Column(name = "role_id")
+    private Long roleId;
 
-    @Column(name = "sys_role_id")
-    private Long sysRoleId;
+    @Column(name = "permission_id")
+    private Long permissionId;
 
     @Column(name = "insert_time")
     private Date insertTime;
@@ -43,31 +44,31 @@ public class RoleUser {
     }
 
     /**
-     * @return sys_user_id
+     * @return role_id
      */
-    public Long getSysUserId() {
-        return sysUserId;
+    public Long getRoleId() {
+        return roleId;
     }
 
     /**
-     * @param sysUserId
+     * @param roleId
      */
-    public void setSysUserId(Long sysUserId) {
-        this.sysUserId = sysUserId;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     /**
-     * @return sys_role_id
+     * @return permission_id
      */
-    public Long getSysRoleId() {
-        return sysRoleId;
+    public Long getPermissionId() {
+        return permissionId;
     }
 
     /**
-     * @param sysRoleId
+     * @param permissionId
      */
-    public void setSysRoleId(Long sysRoleId) {
-        this.sysRoleId = sysRoleId;
+    public void setPermissionId(Long permissionId) {
+        this.permissionId = permissionId;
     }
 
     /**

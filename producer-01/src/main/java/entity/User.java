@@ -1,18 +1,19 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "sys_role_user")
-public class RoleUser {
+@Table(name = "sys_user")
+public class User implements Serializable {
     @Id
     private Long id;
 
-    @Column(name = "sys_user_id")
-    private Long sysUserId;
+    @Column(name = "user_name")
+    private String userName;
 
-    @Column(name = "sys_role_id")
-    private Long sysRoleId;
+    @Column(name = "pass_word")
+    private String passWord;
 
     @Column(name = "insert_time")
     private Date insertTime;
@@ -43,31 +44,31 @@ public class RoleUser {
     }
 
     /**
-     * @return sys_user_id
+     * @return user_name
      */
-    public Long getSysUserId() {
-        return sysUserId;
+    public String getUserName() {
+        return userName;
     }
 
     /**
-     * @param sysUserId
+     * @param userName
      */
-    public void setSysUserId(Long sysUserId) {
-        this.sysUserId = sysUserId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     /**
-     * @return sys_role_id
+     * @return pass_word
      */
-    public Long getSysRoleId() {
-        return sysRoleId;
+    public String getPassWord() {
+        return passWord;
     }
 
     /**
-     * @param sysRoleId
+     * @param passWord
      */
-    public void setSysRoleId(Long sysRoleId) {
-        this.sysRoleId = sysRoleId;
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     /**

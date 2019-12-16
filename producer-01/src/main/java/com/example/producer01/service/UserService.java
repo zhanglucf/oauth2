@@ -10,9 +10,10 @@ import java.util.List;
  * @data 2019/12/13
  */
 public interface UserService {
+
     User creatUser(UserDto userDto);
 
-    User findByUserName();
+    User findByUserName(String name);
 
     List<User> findAll();
 }

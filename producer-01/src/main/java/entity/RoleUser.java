@@ -1,10 +1,11 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "sys_role_user")
-public class RoleUser {
+public class RoleUser implements Serializable {
     @Id
     private Long id;
 

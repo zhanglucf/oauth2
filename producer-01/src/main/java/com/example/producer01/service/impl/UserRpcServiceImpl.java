@@ -45,12 +45,12 @@ public class UserRpcServiceImpl implements UserRpcService {
     public Set<Role> loadRolesByUserId(Long userId) {
         Assert.isTrue(userId != null, "user id can not be null!");
         RoleUser ex = new RoleUser();
-        ex.setUserId(userId);
+        ex.setSysUserId(userId);
         List<RoleUser> roleUsers = roleUserMapper.selectByExample(ex);
         Set<Role> roleList = new HashSet<>();
         if (!CollectionUtils.isEmpty(roleUsers)) {
             for (RoleUser roleUser : roleUsers) {
-                Role role = roleMapper.selectByPrimaryKey(roleUser.getRoleId());
+                Role role = roleMapper.selectByPrimaryKey(roleUser.getSysRoleId());
                 if (role != null) {
                     roleList.add(role);
                 }

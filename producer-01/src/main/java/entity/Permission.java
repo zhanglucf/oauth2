@@ -1,18 +1,21 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "sys_role_user")
-public class RoleUser {
+@Table(name = "sys_permission")
+public class Permission implements Serializable {
     @Id
     private Long id;
 
-    @Column(name = "sys_user_id")
-    private Long sysUserId;
+    private String name;
 
-    @Column(name = "sys_role_id")
-    private Long sysRoleId;
+    private String description;
+
+    private String url;
+
+    private Long pid;
 
     @Column(name = "insert_time")
     private Date insertTime;
@@ -43,31 +46,59 @@ public class RoleUser {
     }
 
     /**
-     * @return sys_user_id
+     * @return name
      */
-    public Long getSysUserId() {
-        return sysUserId;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param sysUserId
+     * @param name
      */
-    public void setSysUserId(Long sysUserId) {
-        this.sysUserId = sysUserId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * @return sys_role_id
+     * @return description
      */
-    public Long getSysRoleId() {
-        return sysRoleId;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * @param sysRoleId
+     * @param description
      */
-    public void setSysRoleId(Long sysRoleId) {
-        this.sysRoleId = sysRoleId;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return url
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * @param url
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    /**
+     * @return pid
+     */
+    public Long getPid() {
+        return pid;
+    }
+
+    /**
+     * @param pid
+     */
+    public void setPid(Long pid) {
+        this.pid = pid;
     }
 
     /**

@@ -43,7 +43,6 @@ public class BaseEntity implements Serializable {
      * 记录更新者ID
      */
 
-//    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JSONField(name = "updateBy",serialize = false)
     @Column(name = "update_by")
     private Long updateBy;

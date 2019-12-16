@@ -1,11 +1,12 @@
 package com.example.producer01.mapper;
 
-import com.example.producer01.support.BaseMapper;
 import entity.Role;
+import util.BaseMapper;
 
-/**
- * @author zhenhua zhang
- * @data 2019/12/13
- */
+import java.util.List;
+
 public interface RoleMapper extends BaseMapper<Role> {
+    Role findByName(String name);
+
+    List<Role> findByUserName(String userName);
 }
