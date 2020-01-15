@@ -1,6 +1,6 @@
 package com.example.oauth.config;
 
-import com.example.oauth.provider.GeneralAuthenticationProvider;
+import com.example.oauth.entity.granter.GeneralAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

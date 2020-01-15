@@ -14,6 +14,7 @@
         <module>producer-01-api</module>
         <module>oauth</module>
         <module>oauth-common</module>
+        <module>consumer-02</module>
     </modules>
 
 </project>

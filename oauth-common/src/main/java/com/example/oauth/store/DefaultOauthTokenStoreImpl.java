@@ -20,13 +20,13 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 
-public class DefaultOauthTokenStoreImpl  implements TokenStore {
+public class DefaultOauthTokenStoreImpl implements TokenStore {
 
     boolean flushToken = false;
 
     @Value("${xt.flush.token:false}")
     public void setFlushToken(String flushToken) {
-        this.flushToken = flushToken!=null&&flushToken.equalsIgnoreCase("true");
+        this.flushToken = flushToken != null && flushToken.equalsIgnoreCase("true");
     }
 
     private static final String ACCESS = "access:";
@@ -43,7 +43,6 @@ public class DefaultOauthTokenStoreImpl  implements TokenStore {
     private RedisConnectionFactory connectionFactory;
 
 
-
     private AuthenticationKeyGenerator authenticationKeyGenerator = new DefaultAuthenticationKeyGenerator();
     private RedisTokenStoreSerializationStrategy serializationStrategy = new JdkSerializationStrategy();
 
@@ -51,7 +50,7 @@ public class DefaultOauthTokenStoreImpl  implements TokenStore {
     }
 
     public DefaultOauthTokenStoreImpl(RedisConnectionFactory connectionFactory) {
-        this.connectionFactory=connectionFactory;
+        this.connectionFactory = connectionFactory;
     }
 
     public void setAuthenticationKeyGenerator(AuthenticationKeyGenerator authenticationKeyGenerator) {
@@ -109,10 +108,11 @@ public class DefaultOauthTokenStoreImpl  implements TokenStore {
             // changed)
             storeAccessToken(accessToken, authentication);
         }
-        if( flushToken &&
-                authentication.getUserAuthentication() instanceof UsernamePasswordAuthenticationToken &&
-                accessToken instanceof DefaultOAuth2AccessToken)
-            ((DefaultOAuth2AccessToken)accessToken).setExpiration(new Date(0L));  //set original token expired if need to flush
+        if (flushToken &&
+                authentication.getUserAuthentication() instanceof UsernamePasswordAuthenticationToken
+                && accessToken instanceof DefaultOAuth2AccessToken) {
+            ((DefaultOAuth2AccessToken) accessToken).setExpiration(new Date(0L));  //set original token expired if need to flush
+        }
         return accessToken;
     }
 
@@ -238,8 +238,8 @@ public class DefaultOauthTokenStoreImpl  implements TokenStore {
         RedisConnection conn = getConnection();
         try {
 //			conn.openPipeline();
-            byte[] access = (byte[])conn.get(accessKey);
-            byte[] auth = (byte[])conn.get(authKey);
+            byte[] access = (byte[]) conn.get(accessKey);
+            byte[] auth = (byte[]) conn.get(authKey);
             conn.del(accessKey);
             conn.del(accessToRefreshKey);
             // Don't remove the refresh token - it's up to the caller to do that

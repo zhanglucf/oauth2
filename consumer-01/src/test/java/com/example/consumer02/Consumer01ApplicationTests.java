@@ -1,4 +1,4 @@
-package com.example.consumer01;
+package com.example.consumer02;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
